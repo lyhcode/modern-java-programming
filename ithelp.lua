@@ -1,4 +1,5 @@
--- Invoke with: pandoc -t sample.lua
+-- Invoke with: pandoc -t ithelp.lua XXXXXXXX.md -o XXXXXXXX.txt
+-- Original scirpt from Gist https://gist.github.com/lilydjwg/5812009
 
 -- Inline HTML
 function RawInline(s, s2)
