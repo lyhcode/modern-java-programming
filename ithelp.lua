@@ -111,7 +111,7 @@ end
 
 -- lev is an integer, the header level.
 function Header(lev, s, attr)
-  return "[h]" .. s .. "[/h]"
+  return "[size=20px][color=blue][font=Sans Serif]" .. s .. "[/font][/color][/size]"
 end
 
 function BlockQuote(s)
@@ -129,7 +129,6 @@ end
 function BulletList(items)
   local buffer = {}
   for _, item in ipairs(items) do
-    -- table.insert(buffer, "[*]" .. item)
     table.insert(buffer, " * " .. item)
   end
   return table.concat(buffer, "\n")
@@ -138,9 +137,9 @@ end
 function OrderedList(items)
   local buffer = {}
   for _, item in ipairs(items) do
-    table.insert(buffer, "[*]" .. item)
+    table.insert(buffer, " * " .. item)
   end
-  return "[list=1]\n" .. table.concat(buffer, "\n") .. "\n[/list]"
+  return table.concat(buffer, "\n")
 end
 
 -- Revisit association list STackValue instance.
