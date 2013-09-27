@@ -87,15 +87,15 @@ BUILD SUCCESSFUL
 Total time: 9.762 secs
 ```
 
-第一次的建置，產生的 JAR 檔路徑是 build/libs/example001.jar（example001 是資料夾名稱），可以使用 java 指令立即執行。
+第一次的建置，產生的 JAR 檔路徑是 build/libs/ex001.jar（ex001 是資料夾名稱），可以使用 java 指令立即執行。
 
 ```
-java -cp build/libs/example001.jar com.example.Main
+java -cp build/libs/ex001.jar com.example.Main
 ```
 
 執行後將會在畫面顯示 Hello 文字。
 
-因為我們並沒有在 build.gradle 幫專案代碼命名，因此 Gradle 會自動使用目前專案的資料夾名稱（範例為 example001）當做命名，因此產生的 JAR 檔案名稱為 example001.jar。
+因為我們並沒有在 build.gradle 幫專案代碼命名，因此 Gradle 會自動使用目前專案的資料夾名稱（範例為 ex001）當做命名，因此產生的 JAR 檔案名稱為 ex001.jar。
 
 目前的 JAR 檔案無法直接被執行，因為我們還沒指定 Main-Class 定義，也就是告訴 JAR 啟動時應該執行哪個類別的 main() 函數。
 
@@ -111,11 +111,11 @@ jar {
 
 這是 Gradle 使用的 Groovy 語言定義的 DSL 語法，從程式碼就不難清楚看出，這幾行設定是針對 JAR 的 Manifest 增加屬性（attributes）設定。
 
-再重新執行一次 ``gradle build`` 指令，接下來就能利用 ``java -jar build/libs/example001.jar`` 的方式執行 JAR 檔案。
+再重新執行一次 ``gradle build`` 指令，接下來就能利用 ``java -jar build/libs/ex001.jar`` 的方式執行 JAR 檔案。
 
 ```
 $ gradle build
-$ java -jar build/libs/example001.jar
+$ java -jar build/libs/ex001.jar
 Hello
 ```
 
