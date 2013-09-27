@@ -3,7 +3,7 @@
 
 Gradle 簡單說就是 Java 世界的 Makefile，它可以幫忙打理那些在專案開發過程中的瑣事，舉凡編譯、測試、檢查程式碼、產生文件、清理或壓縮檔案、上傳、發佈、重新啟動伺服器到送出電子郵件，都可以利用 Gradle 撰寫的 Script 來自動完成作業。
 
-![圖片擷取自 Flickr 網路相簿 Creative Commons 授權圖片](http://akamaicovers.oreilly.com/images/0636920019909/cat.gif)
+![Building and Testing with Gradle](http://akamaicovers.oreilly.com/images/0636920019909/cat.gif)
 
 它的應用不僅只用於 Java 的開發領域，它和其他語言的開發環境也可以搭配使用，同樣可以有很多派上用場的機會。
 
