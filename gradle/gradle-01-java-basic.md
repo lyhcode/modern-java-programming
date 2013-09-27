@@ -1,9 +1,9 @@
-使用 Gradle 建置基礎 Java 專案
-============================
+使用 Gradle 建置基礎 Java 專案（一）
+================================
 
 Gradle 是用途廣泛的建置工具，但最重要的一點，就是非常適合處理 Java 專案，它讓 Java 專案自動化建置（Build Automation）變得更容易上手。
 
-![圖片擷取自 Flickr 網路相簿 Creative Commons 授權圖片](http://akamaicovers.oreilly.com/images/0636920019909/cat.gif)
+![Building and Testing with Gradle](http://akamaicovers.oreilly.com/images/0636920019909/cat.gif)
 
 多數 Java 專案都有相似的建置流程：編譯原始碼（\*.java）、執行一些單元測試（UnitTests），然後將完成的 Byte Code 程式（\*.class）打包成 JAR 檔發佈。
 
