@@ -123,7 +123,7 @@ Hello
 
 本文使用的範例程式碼，可在以下網址取得：
 
-* http://git.io/2PA9hQ
+* http://git.io/r1fnnw
 
 參考資料：
 
