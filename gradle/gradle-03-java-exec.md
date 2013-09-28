@@ -50,46 +50,11 @@ Hello
 SSBMb3ZlIEdyYWRsZQ==
 ```
 
-### 產生 JavaDoc 文件 ###
-
-[JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) 提供程式碼的註解撰寫規範，可以將註解用來自動產生 API 說明文件，以下範例修改 Main.java 增加部分註解文字。
-
-src/main/java/com/example/Main.java
-
-```
-package com.example;
-
-import org.apache.commons.codec.binary.Base64;
-
-/**
- * 範例主程式
- */
-public class Main {
-
-    public static void main(String args[]) {
-        System.out.println(new Main().sayHello());
-
-        Base64 base64 = new Base64();
-        byte[] bytes = base64.encode("I Love Gradle".getBytes());
-
-        System.out.println(new String(bytes));
-    }
-
-    /**
-     * 顯示 Hello 訊息
-     * @return 回傳 Hello 訊息文字
-     */
-    public String sayHello() {
-        return "Hello";
-    }
-}
-```
-
-
+到目前為止，Gradle 的自動化建置流程，已經可以完成編譯並自動執行；開發者撰寫完一段程式，如果想看到執行結果，只需要重複執行 ``gradle -q run`` 即可，搭配一個終端機（console）畫面就能搞定，不必再依賴開發工具的功能。
 
 本文使用的範例程式碼，可在以下網址取得：
 
-* 
+* http://git.io/XtFD2g
 
 參考資料：
 

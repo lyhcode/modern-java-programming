@@ -2,6 +2,9 @@ package com.example;
 
 import org.apache.commons.codec.binary.Base64;
 
+/**
+ * 範例主程式
+ */
 public class Main {
 
     public static void main(String args[]) {
@@ -13,6 +16,10 @@ public class Main {
         System.out.println(new String(bytes));
     }
 
+    /**
+     * 顯示 Hello 訊息
+     * @return 回傳 Hello 訊息文字
+     */
     public String sayHello() {
         return "Hello";
     }
