@@ -3,56 +3,17 @@
 
 Gradle 是用途廣泛的建置工具，但最重要的一點，就是非常適合處理 Java 專案，它讓 Java 專案自動化建置（Build Automation）變得更容易上手。
 
-前兩篇文章中，使用相當精簡的 Gradle 設定檔，就能用來處理一般新建的 Java 專案。但是在專案變得更複雜，或者需要承接舊專案時，預設的設定直可能不合用，這時候就必須對 Gradle 的 Java Plugin 有更進一步認識。
+在程式碼中撰寫良好的註解，是程式設計師的重要修煉之一。良好的 Java 註解，還必須依循 JavaDoc 的規範，如此就可以利用 JDK 提供的 javadoc 工具，快速產生標準的 Java API 文件，方便其他人隨時查詢最新的類別（或函式）使用說明，這也是 Java 專案自動化建置的重要流程。
+
+* JavaDoc - http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html
 
 * [The Java Plugin](http://www.gradle.org/docs/current/userguide/java_plugin.html)
 
 ![Building and Testing with Gradle](http://akamaicovers.oreilly.com/images/0636920019909/cat.gif)
 
-### 自訂 JavaExec 任務 ###
-
-在上篇文章中，我們修改設定讓 Gradle 的 jar 設定以產生 FatJar 檔案，解決預設的 CLASSPATH 不包含所需 Commons Codec 相依套件的問題。
-
-另一種更直接的方式，就是在 Gradle 建置流程的最後一個步驟，執行 run 任務。很不幸地事情發生了，Java Plugin 並不提供 run 的任務定義，因為「如何執行 Java 程式」存在千變萬化的各種選項，所以我們必須自行定義。幸好 Java Plugin 已經提供「JavaExec」這個任務類型，所以我們真正需要做的事情並不多。
-
-以下是 task run 的定義範例，僅簡單地做了兩件事：(1)指定執行哪個類別的 main 主程式；(2)設定 CLASSPATH 讓程式找得到所需的類別。
-
-build.gradle
-
-```
-apply plugin: 'java'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile 'commons-codec:commons-codec:1.8'
-}
-
-task run(type: JavaExec) {
-    main = 'com.example.Main'
-    classpath = configurations.compile + sourceSets.main.output
-}
-```
-
-既然 Gradle 會自動幫我們取得定義在 dependencies 的相關 JAR 檔案，但實際上這些檔案都放到哪去了呢？預設是保存在 ``~/.gradle/caches/`` 資料夾下。
-
-預設情況下，Gradle 並不會機婆地把相關 JAR 檔案複製一份到專案資料夾下，因為在不同專案之間，這些 JAR 可能被重複共用，所以只保存一份通常是比較好的選擇。
-
-以上範例的 ``configurations.compile`` 包含 runtime 與 compile 兩個 dependencies 設定所需的 JAR 路徑集合，而 ``sourceSets.main.output`` 則是原始碼編譯後輸出的位置（預設是 build/classes 資料夾）。
-
-定義好 ``task run`` 之後，就能使用 ``gradle -q run`` 執行程式（參數 -q 可隱藏 Gradle 建置過程的除錯訊息）。
-
-```
-$ gradle -q run
-Hello
-SSBMb3ZlIEdyYWRsZQ==
-```
-
 ### 產生 JavaDoc 文件 ###
 
-[JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) 提供程式碼的註解撰寫規範，可以將註解用來自動產生 API 說明文件，以下範例修改 Main.java 增加部分註解文字。
+JavaDoc 提供程式碼的註解撰寫規範，可以將註解用來自動產生 API 說明文件，以下範例修改 Main.java 增加部分註解文字。
 
 src/main/java/com/example/Main.java
 
@@ -87,9 +48,26 @@ public class Main {
 
 我們在以上範例程式碼中使用中文字，並將檔案儲存為 UTF-8 編碼格式；為避免 Gradle 誤用系統預設的編碼（如 BIG5）處理，需要在 build.gradle 加入以下兩行設定，如此程式碼及 JavaDoc 的編碼才能正確運作。
 
+build.gradle
+
 ```
+apply plugin: 'java'
+
 javadoc.options.encoding = 'UTF-8'
 compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-codec:commons-codec:1.8'
+}
+
+task run(type: JavaExec) {
+    main = 'com.example.Main'
+    classpath = configurations.compile + sourceSets.main.output
+}
 ```
 
 接著利用 javadoc 指令產生文件。

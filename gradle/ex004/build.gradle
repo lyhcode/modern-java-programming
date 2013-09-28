@@ -15,15 +15,3 @@ task run(type: JavaExec) {
     main = 'com.example.Main'
     classpath = configurations.compile + sourceSets.main.output
 }
-
-//jar {
-//    from {
-//        configurations.runtime.collect {
-//            it.isDirectory() ? it : zipTree(it)
-//        }
-//    }
-//    manifest {
-//        attributes 'Main-Class': 'com.example.Main'
-//    }
-//    exclude('META-INF/*.txt')
-//}
