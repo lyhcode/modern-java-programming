@@ -119,6 +119,12 @@ $ java -jar build/libs/ex001.jar
 Hello
 ```
 
+最後，如果要將自動建置所產生的檔案清除，可以利用 ``gradle clean`` 指令。
+
+```
+gradle clean
+```
+
 後續的文章，我們將陸續介紹進階的設定、整合 Eclipse 開發工具的方法，以及在自動化建置中加入 JUnit 單元測試。
 
 本文使用的範例程式碼，可在以下網址取得：
