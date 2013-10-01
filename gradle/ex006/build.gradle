@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+javadoc.options.encoding = 'UTF-8'
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-codec:commons-codec:1.8'
+    testCompile 'junit:junit:4.+'
+}
+
+task run(type: JavaExec) {
+    main = 'com.example.Main'
+    classpath = configurations.compile + sourceSets.main.output
+}

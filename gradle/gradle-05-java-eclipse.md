@@ -48,7 +48,7 @@ Eclipse Plugin 提供兩個指令：
 
 本文使用的範例程式碼，可在以下網址取得：
 
-* ...
+* http://git.io/TiR2YA
 
 參考資料：
 
