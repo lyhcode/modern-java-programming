@@ -80,7 +80,7 @@ Application Plugin 幫我們產生 ex007 與 ex007.bat 兩個可執行檔案，�
 
 本文使用的範例程式碼，可在以下網址取得：
 
-* http://git.io/dMt5YA
+* http://git.io/MtHC9g
 
 參考資料：
 
