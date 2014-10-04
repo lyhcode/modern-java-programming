@@ -82,9 +82,9 @@ task hello {
 }
 ```
 
-將檔案儲存為 ``build.groovy``，這個範例包含一個最簡單的 ``hello`` 任務定義。
+將檔案儲存為 ``build.gradle``，這個範例包含一個最簡單的 ``hello`` 任務定義。
 
-在 build.groovy 的同一個路徑下，執行 ``gradle -q hello`` 指令，就可以看到執行結果。
+在 build.gradle 的同一個路徑下，執行 ``gradle -q hello`` 指令，就可以看到執行結果。
 
 ```
 $ gradle -q hello
